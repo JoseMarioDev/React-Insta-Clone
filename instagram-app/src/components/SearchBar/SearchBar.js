@@ -6,17 +6,17 @@ const SearchBar = () => {
     <div>
       <div className='navbar'>
         <div className='nav-left'>
-          <i class='fab fa-instagram' />
+          <i className='fab fa-instagram' />
           <div className='logo-text'>Instagram</div>
         </div>
         <div className='nav-center'>
-          <i class='fas fa-search' />
+          <i className='fas fa-search' />
           <input type='text' placeholder='search' />
         </div>
         <div className='nav-right'>
-          <i class='far fa-compass' />
-          <i class='far fa-heart' />
-          <i class='far fa-user' />
+          <i className='far fa-compass' />
+          <i className='far fa-heart' />
+          <i className='far fa-user' />
         </div>
       </div>
       <hr />

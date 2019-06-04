@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 const CommentSection = props => {
   return (
     <div>
-      <p>{props.commentsection.text}</p>
+      <p>
+        <strong> {props.commentsection.username} </strong>
+        {props.commentsection.text}
+      </p>
     </div>
   );
 };

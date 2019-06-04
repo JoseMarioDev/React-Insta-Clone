@@ -5,32 +5,34 @@ import './PostContainer.scss';
 
 const PostContainer = props => {
   return props.postcontainer.map(post => (
-    <div className='post-container'>
-      <div className='post-container-top'>
-        <div className='imguser'>
-          <div className='img-top'>
-            <img src={post.thumbnailUrl} alt='' />
+    <section className='container'>
+      <div className='post-container'>
+        <div className='post-container-top'>
+          <div className='imguser'>
+            <div className='img-top'>
+              <img src={post.thumbnailUrl} alt='' />
+            </div>
+            <h6>{post.username}</h6>
           </div>
-          <h6>{post.username}</h6>
+          <i className='fas fa-ellipsis-h' />
         </div>
-        <i className='fas fa-ellipsis-h' />
-      </div>
-      <img className='img-mid' src={post.imageUrl} alt='' />
-      <div className='icons'>
-        <div className='icon-left'>
-          <i className='far fa-heart' />
-          <i className='far fa-comment' />
-          <i className='far fa-share-square' />
+        <img className='img-mid' src={post.imageUrl} alt='' />
+        <div className='icons'>
+          <div className='icon-left'>
+            <i className='far fa-heart' />
+            <i className='far fa-comment' />
+            <i className='far fa-share-square' />
+          </div>
+          <i className='far fa-bookmark' />
         </div>
-        <i className='far fa-bookmark' />
+        <h6>{post.likes} likes </h6>
+        {post.comments.map(comment => (
+          <CommentSection commentsection={comment} />
+        ))}
+        <p className='timestamp'>{post.timestamp}</p>
+        <input type='text' placeholder='Add a comment...' />
       </div>
-      <h6>{post.likes} likes </h6>
-      {post.comments.map(comment => (
-        <CommentSection commentsection={comment} />
-      ))}
-      <p className='timestamp'>{post.timestamp}</p>
-      <input type='text' placeholder='Add a comment...' />
-    </div>
+    </section>
   ));
 };
 

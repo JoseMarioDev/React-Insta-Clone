@@ -16,14 +16,19 @@
     .logo-text {
       border-left: 0.5px solid black;
       padding-left: 10px;
+      font-family: 'Oleo Script', cursive;
+      font-style: italic;
+      font-size: 16px;
     }
   }
 
   .nav-center {
     input {
+      background-image: url('<i className='fasfa-search' />');
       text-align: center;
       font-size: 12px;
       margin-bottom: 5px;
+      font-family: 'FontAwesome';
     }
   }
 

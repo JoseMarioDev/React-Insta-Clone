@@ -1,5 +1,11 @@
+.container {
+  // border: 1px solid red;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
 .post-container {
-  // padding: 5px;
+  display: inline-block;
   border: 0.2px solid darkgray;
   max-width: 440px;
   margin: 45px auto;

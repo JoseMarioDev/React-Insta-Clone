@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CommentSection = props => {
+  // addNewComment(e,index) {
+
+  // }
+
   return (
     <div>
       <p>

@@ -30,7 +30,7 @@ const PostContainer = props => {
           <CommentSection commentsection={comment} />
         ))}
         <p className='timestamp'>{post.timestamp}</p>
-        <input type='text' placeholder='Add a comment...' />
+        {props.commentform}
       </div>
     </section>
   ));

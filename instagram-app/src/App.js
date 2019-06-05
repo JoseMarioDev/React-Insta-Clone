@@ -27,6 +27,14 @@ export class App extends Component {
     this.setState({ filteredPosts: filtered });
   };
 
+  toggleLike = () => {
+    const addLike = this.state.likes + 1;
+    this.setState({
+      liked: !this.state.liked,
+      likes: addLike,
+    });
+  };
+
   render() {
     return (
       <div className='App'>
@@ -38,6 +46,7 @@ export class App extends Component {
           data={this.state.data}
           filteredPosts={this.state.filteredPosts}
           searchFilter={this.searchFilter}
+          toggleLike={this.toggleLike}
         />
       </div>
     );

@@ -10,7 +10,7 @@ class CommentSection extends Component {
   addNewComment = e => {
     e.preventDefault();
     const newComment = {
-      username: 'Ian and Josh',
+      username: 'Jose',
       text: this.state.newComment,
     };
 
@@ -37,19 +37,18 @@ class CommentSection extends Component {
           );
         })}
 
-        <p className="timestamp">{this.props.timestamp}</p>
+        <p className='timestamp'>{this.props.timestamp}</p>
 
-        <form onSubmit = {this.addNewComment}>
-          <input 
-          type="text"
-          name = 'newComment'
-          value ={this.state.newComment}
-          onChange = {this.changeHandler}
-          placeholder = ' Add a comment...'
-          required
+        <form onSubmit={this.addNewComment}>
+          <input
+            type='text'
+            name='newComment'
+            value={this.state.newComment}
+            onChange={this.changeHandler}
+            placeholder=' Add a comment...'
+            required
           />
         </form>
-        
       </div>
     );
   }

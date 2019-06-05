@@ -3,38 +3,53 @@ import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.scss';
 
-const PostContainer = props => {
-  return props.postcontainer.map(post => (
-    <section className='container'>
+class PostContainer extends React.Component {
+  render() {
+    return (
       <div className='post-container'>
-        <div className='post-container-top'>
-          <div className='imguser'>
-            <div className='img-top'>
-              <img src={post.thumbnailUrl} alt='' />
-            </div>
-            <h6>{post.username}</h6>
-          </div>
-          <i className='fas fa-ellipsis-h' />
-        </div>
-        <img className='img-mid' src={post.imageUrl} alt='' />
-        <div className='icons'>
-          <div className='icon-left'>
-            <i className='far fa-heart' />
-            <i className='far fa-comment' />
-            <i className='far fa-share-square' />
-          </div>
-          <i className='far fa-bookmark' />
-        </div>
-        <h6>{post.likes} likes </h6>
-        {post.comments.map(comment => (
-          <CommentSection commentsection={comment} />
-        ))}
-        <p className='timestamp'>{post.timestamp}</p>
-        {props.commentform}
+        {this.props.filteredPosts.length === 0
+          ? this.props.data.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt='thumbnail' />
+                    <h3>{post.username}</h3>
+                  </header>
+
+                  <img src={post.imageUrl} alt={post.id} />
+
+                  <section className='likebar'>{post.likes} likes</section>
+
+                  <CommentSection
+                    comments={post.comments}
+                    timestamp={post.timestamp}
+                  />
+                </>
+              );
+            })
+          : this.props.filteredPosts.map(post => {
+              return (
+                <>
+                  <header>
+                    <img src={post.thumbnailUrl} alt='thumbnail' />
+                    <h3>{post.username}</h3>
+                  </header>
+
+                  <img src={post.imageUrl} alt={post.id} />
+
+                  <section className='likebar'>{post.likes} likes</section>
+
+                  <CommentSection
+                    comments={post.comments}
+                    timestamp={post.timestamp}
+                  />
+                </>
+              );
+            })}
       </div>
-    </section>
-  ));
-};
+    );
+  }
+}
 
 PostContainer.propTypes = {
   username: PropTypes.string,
@@ -43,3 +58,17 @@ PostContainer.propTypes = {
 };
 
 export default PostContainer;
+
+{
+  /* <i className='fas fa-ellipsis-h' />
+
+
+<div className='icons'>
+  <div className='icon-left'>
+    <i className='far fa-heart' />
+    <i className='far fa-comment' />
+    <i className='far fa-share-square' />
+  </div>
+  <i className='far fa-bookmark' />
+</div>; */
+}

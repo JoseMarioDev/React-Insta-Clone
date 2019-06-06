@@ -1,45 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CommentSection from '../CommentSection/CommentSection';
-import './PostContainer.scss';
+import Post from './Post';
 
-const PostContainer = props => {
-  return props.postcontainer.map(post => (
-    <section className='container'>
+class PostContainer extends React.Component {
+  render() {
+    return (
       <div className='post-container'>
-        <div className='post-container-top'>
-          <div className='imguser'>
-            <div className='img-top'>
-              <img src={post.thumbnailUrl} alt='' />
-            </div>
-            <h6>{post.username}</h6>
-          </div>
-          <i className='fas fa-ellipsis-h' />
-        </div>
-        <img className='img-mid' src={post.imageUrl} alt='' />
-        <div className='icons'>
-          <div className='icon-left'>
-            <i className='far fa-heart' />
-            <i className='far fa-comment' />
-            <i className='far fa-share-square' />
-          </div>
-          <i className='far fa-bookmark' />
-        </div>
-        <h6>{post.likes} likes </h6>
-        {post.comments.map(comment => (
-          <CommentSection commentsection={comment} />
-        ))}
-        <p className='timestamp'>{post.timestamp}</p>
-        <input type='text' placeholder='Add a comment...' />
+        {this.props.filteredPosts.length === 0
+          ? this.props.data.map(post => {
+              return <Post post={post} />;
+            })
+          : this.props.filteredPosts.map(post => {
+              return <Post post={post} />;
+            })}
       </div>
-    </section>
-  ));
-};
+    );
+  }
+}
 
 PostContainer.propTypes = {
   username: PropTypes.string,
   likes: PropTypes.number,
   thumbnailUrl: PropTypes.string,
+  imageUrl: PropTypes.string,
+  timestamp: PropTypes.string,
 };
 
 export default PostContainer;

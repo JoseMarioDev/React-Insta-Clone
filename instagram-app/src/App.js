@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+// import './App.scss';
 import withAuthenticate from './components/Authentication/withAuthenticate';
 import Login from './components/Login/Login';
 import PostsPage from './components/PostContainer/PostsPage';

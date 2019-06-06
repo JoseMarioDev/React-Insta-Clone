@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './PostContainer.scss';
 import Post from './Post';
 
 class PostContainer extends React.Component {

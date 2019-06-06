@@ -33,11 +33,12 @@ const withAuthenticate = PostComp => LoginComp =>
         return <PostComp />;
       } else {
         return (
-          <LoginComp
-            username={this.username}
-            password={this.password}
-            signIn={this.signIn}
-          />
+          <PostComp />
+          // <LoginComp
+          //   username={this.username}
+          //   password={this.password}
+          //   signIn={this.signIn}
+          // />
         );
       }
     }
